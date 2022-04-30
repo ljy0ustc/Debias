@@ -11,9 +11,9 @@ def generate_total_sample(num_user, num_item):
         sample.extend([[i,j] for j in range(num_item)])
     return np.array(sample)
 
-class MF_CVIB(nn.Module):
+class MF_DIB(nn.Module):
     def __init__(self, num_users, num_items, embedding_k=4, *args, **kwargs):
-        super(MF_CVIB, self).__init__()
+        super(MF_DIB, self).__init__()
         self.num_users = num_users
         self.num_items = num_items
         self.embedding_k = embedding_k
@@ -114,11 +114,11 @@ class MF_CVIB(nn.Module):
         pred = self.forward(x)
         return pred.detach().numpy()
 
-class NCF_CVIB(nn.Module):
+class NCF_DIB(nn.Module):
     """The neural collaborative filtering method.
     """
     def __init__(self, num_users, num_items, embedding_k=4):
-        super(NCF_CVIB, self).__init__()
+        super(NCF_DIB, self).__init__()
         self.num_users = num_users
         self.num_items = num_items
         self.embedding_k = embedding_k
